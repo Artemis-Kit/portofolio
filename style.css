@@ -5,6 +5,7 @@ html { scroll-behavior: smooth; }
     box-sizing: border-box;
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
+    cursor: default;
 }
 
 .header {
@@ -46,6 +47,7 @@ html { scroll-behavior: smooth; }
     font-size: 15px;
     color: coral;
     padding: 20px;
+    cursor: pointer;
 }
 
 .link li a:hover {
@@ -86,7 +88,7 @@ html { scroll-behavior: smooth; }
     background-image: url('./src/landmars.jpg');
 }
 
-.project {
+.social {
     background-image: url('./src/lifeinmars.jpg');
 }
 
@@ -166,6 +168,38 @@ html { scroll-behavior: smooth; }
     font-size: 19px;
 }
 
+.redirect {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.redirect div {
+    z-index: 10;
+}
+
+.redirect ul {
+    background-color: rgba(54, 54, 54, 0.3); 
+    box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+.redirect ul li {
+    display: inline-block;
+    cursor: pointer;
+    padding: 10px 20px;
+    color: #d3d3d3;
+    width: 110px;
+    text-align: center;
+    margin-right: 1px;
+    border-radius: 5px;
+}
+
+.redirect ul li:hover {
+    background-color: rgba(54, 54, 54, 0.3);
+}
+
 .grid-skill {
     display: flex;
     flex-direction: row;
@@ -223,4 +257,67 @@ html { scroll-behavior: smooth; }
     margin-top: 20px;
     border-radius: 10px;
     padding: 20px;
+}
+
+.project {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.card {
+    flex-wrap: wrap;
+    width: 20%;
+    height: auto;
+    z-index: 10;
+    margin-right: 15px;
+}
+
+.detail-project {
+    padding: 13px 10px 14px 10px;
+    color: #d3d3d3;
+    height: auto;
+    background-color: rgba(54, 54, 54, 0.4);
+    border-radius: 0px 0px 3px 3px;
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-project h2 {
+    font-size: 17px;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.detail-project p {
+    font-size: 14px;
+    color: #bebebe;
+    margin-bottom: 15px;
+}
+
+.detail-project a {
+    color: #bebebe;
+    padding: 5px 10px;
+    border: 2px solid #444;
+    border-radius: 5px;
+    background: transparent;
+    text-align: center;
+    cursor: pointer;
+
+}
+
+.detail-project a:hover {
+    background-color: #444;
+    color: #d3d3d3;
+}
+
+.photo-project {
+    width: auto;
+    height: 135px;
+    background-image: url('./src/medusarevshell.png');
+    background-position: top;
+    background-size: cover;
+    border-radius: 3px 3px 0px 0px;
 }

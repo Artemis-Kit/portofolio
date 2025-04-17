@@ -173,3 +173,50 @@ addEventListener('click', (e) => {
         plc.style.backgroundColor = '';
     } 
 })
+
+const contentSkill = document.getElementById('content-skill');
+const contentProject = document.getElementById('content-project');
+const contentCertificate = document.getElementById('content-certificate');
+const skill = document.getElementById('skill');
+const project = document.getElementById('project');
+const certificate = document.getElementById('certificate');
+
+contentProject.style.display = 'none'
+contentCertificate.style.display = 'none'
+skill.style.backgroundColor = 'rgba(54, 54, 54, 0.2)';
+project.style.backgroundColor = '';
+certificate.style.backgroundColor = '';
+
+addEventListener('click', e => {
+    if(e.target.id == 'skill'){
+        contentProject.style.display = 'none';
+        contentSkill.style.display = 'flex';
+        contentCertificate.style.display = 'none';
+        skill.style.backgroundColor = 'rgba(54, 54, 54, 0.2)';
+        project.style.backgroundColor = '';
+        certificate.style.backgroundColor = '';
+    }
+    if(e.target.id == 'project'){
+        contentProject.style.display = 'flex';
+        contentSkill.style.display = 'none';
+        contentCertificate.style.display = 'none';
+        skill.style.backgroundColor = '';
+        project.style.backgroundColor = 'rgba(54, 54, 54, 0.2)';
+        certificate.style.backgroundColor = '';
+    }
+    if(e.target.id == 'certificate'){
+        contentCertificate.style.display = 'flex';
+        contentProject.style.display = 'none';
+        contentSkill.style.display = 'none';
+        skill.style.backgroundColor = '';
+        project.style.backgroundColor = '';
+        certificate.style.backgroundColor = 'rgba(54, 54, 54, 0.2)';
+    }
+})
+
+
+const medusaBackdoor = document.getElementById('medusa-backdoor');
+
+medusaBackdoor.addEventListener('click', e => {
+    window.open('file:///C:/Users/Medusa/Desktop/MedusaCore/portofolio/src/medusarevshell.png', '_blank')
+})
