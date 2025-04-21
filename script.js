@@ -16,7 +16,7 @@ const data = {
         from: 'Setelah mendapatkan hasil yang sudah saya pelajari sebelumnya yaitu fullstack web developer, saya mempelajari ethical hacking guna mencari masalah yang ada di dalam sistem web yang saya kerjakan sehingga kebocoran data sangat minim.'
     },
     php: {
-        detail: 'PHP adalah singkatan dari Hypertext Preprocessor, yakni sebuah bahasa scripting yang dibuat oleh Rasmus Lerdorf pada tahun 1994 untuk membuat halaman, website, aplikasi web, dan Graphical User Interface (GUI). Bahasa ini bersifat open-source sehingga siapa pun dapat menggunakannya secara gratis. PHP sebagian besar dipakai oleh web developer untuk mengembangkan situs web. Sebanyak 76,7% website dan 43% website berbasis WordPress di seluruh dunia tercatat menggunakan bahasa scripting server-side (sisi server) ini.',
+        detail: 'PHP adalah singkatan dari Hypertext Preprocessor, yakni sebuah bahasa scripting yang dibuat oleh Rasmus Lerdorf pada tahun 1994 untuk membuat halaman, website, aplikasi web, dan Graphical User Interface (GUI). Bahasa ini bersifat open-source sehingga siapa pun dapat menggunakannya secara gratis. Sebanyak 76,7% website dan 43% website berbasis WordPress di seluruh dunia tercatat menggunakan bahasa scripting server-side (sisi server) ini.',
         from: 'PHP ini saya pelajari ketika saya mengetahui rata-rata yang saya temukan yang menggunakan bahasa pemrograman ini adalah 6.7% di seluruh dunia, dan saya mempelajari bahasa pemrograman ini karena saya ingin mempelajari bahasa pemrograman yang lebih kompleks.'
     },
     mysql: {
@@ -36,6 +36,7 @@ const data = {
         from: 'PLC saya dapatkan juga di BBPVP Serang, disini apa yang saya pelajari sebelumnya mempermudah saya untuk memahami bagaimana PLC Berinteraksi dengan komponen lainnya. '
     }
 }
+const phone = window.matchMedia("(max-width: 428px)")
 const html = document.getElementById('html');
 const css = document.getElementById('css');
 const javascript = document.getElementById('javascript');
@@ -47,6 +48,9 @@ const wiring = document.getElementById('wiring');
 const plc = document.getElementById('plc');
 const whatis = document.getElementById('whatis');
 const get = document.getElementById('get');
+const toogle = document.getElementById('toogle');
+const knowlage = document.getElementById('knowlage');
+const detailSkill = document.getElementById('detail-skill');
 
 
 whatis.append(data.html.detail)
@@ -187,6 +191,32 @@ skill.style.backgroundColor = 'rgba(54, 54, 54, 0.2)';
 project.style.backgroundColor = '';
 certificate.style.backgroundColor = '';
 
+let clicked = 0
+toogle.addEventListener('click', (e) => {
+    clicked += 1
+    if(clicked % 2 == 1){
+        toogle.innerHTML = '<i class="fa-solid fa-grip-lines-vertical"></i>'
+        toogle.style.padding = '8px 14px'
+        knowlage.style.display = 'block'
+        detailSkill.style.display = 'none'
+
+        addEventListener('click', (e)=> {
+            if(e.target.id == 'css' || e.target.id == 'html' || e.target.id == 'javascript' || e.target.id == 'ethicalHacking' || e.target.id == 'php' || e.target.id == 'mysql' || e.target.id == 'mongodb' || e.target.id == 'plc' || e.target.id == 'wiring'){
+                toogle.style.padding = '8px 10px'
+                toogle.innerHTML = '<i class="fa-solid fa-grip-lines"></i>'
+                knowlage.style.display = 'none'
+                detailSkill.style.display = 'block'
+                clicked = 0
+            }
+        })
+    }else {
+        toogle.style.padding = '8px 10px'
+        toogle.innerHTML = '<i class="fa-solid fa-grip-lines"></i>'
+        knowlage.style.display = 'none'
+        detailSkill.style.display = 'block'
+    }
+});
+
 addEventListener('click', e => {
     if(e.target.id == 'skill'){
         contentProject.style.display = 'none';
@@ -220,3 +250,92 @@ const medusaBackdoor = document.getElementById('medusa-backdoor');
 medusaBackdoor.addEventListener('click', e => {
     window.open('file:///C:/Users/Medusa/Desktop/MedusaCore/portofolio/src/medusarevshell.png', '_blank')
 })
+
+urls = window.location.pathname;
+
+addEventListener('click', function(e){
+    if(e.target.id == 'bbpvps'){
+        this.window.open(urls + '/../src/certificate/bbpvps.png', '_blank')
+    }
+
+    if(e.target.id == 'hacktrace1'){
+        this.window.open(urls + '/../src/certificate/hacktrace1.png', '_blank')
+    }
+
+    if(e.target.id == 'hacktrace2'){
+        this.window.open(urls + '/../src/certificate/hacktrace2.png', '_blank')
+    }
+
+    if(e.target.id == 'jagatcyber'){
+        this.window.open(urls + '/../src/certificate/jagatcyber.png', '_blank')
+    }
+
+    if(e.target.id == 'sumedanggoid'){
+        this.window.open(urls + '/..src/certificate/sumedanggoid.png', '_blank')
+    }
+})
+
+const name = document.getElementById('name');
+const email = document.getElementById('email');
+const message = document.getElementById('message');
+const checkbox = document.getElementById('checkbox');
+const button = document.getElementById('button'); 
+const alert = document.getElementById('alert');
+
+
+
+
+const send = (value) =>{
+    if(name.value == '' && email.value == '' && message.value == ''){
+        alert.innerHTML = '!Please fill all the fields';
+    }
+
+    if(checkbox.checked == true && value == true){
+        Email.send({
+          Host: "smtp.gmail.com",
+          Username: "wienerjohn330@gmail.com",
+          Password: "",
+          To: 'wienerjohn330@gmail.com',
+          From: email.value,
+          Subject: "Medusa Core",
+          Body: '' + name.value + '\n' + email.value + '\n' + message.value
+        }).then( message => {
+            console.log(message);
+        })
+    }else {
+        alert.innerHTML = '!Checkbox is required';
+    }
+}
+
+
+if(phone.matches){
+    addEventListener('click', (e) => {
+        if(e.target.id == 'project'|| e.target.id == 'certificate'){
+            toogle.style.display = 'none'
+        }else if(e.target.id == 'skill'){
+            toogle.style.display = 'flex'
+        }
+    });
+    const certificate = document.getElementsByClassName('allcert')
+    const slideleft = document.getElementById('slideleft');
+    const slideright = document.getElementById('slideright');
+    slideleft.innerHTML = '<';
+    slideright.innerHTML = '>';
+    let poin = 0;
+    for(let i = 0; i < certificate.length; i++){
+        certificate[i].style.display = 'none'
+        certificate[0].style.display = 'block'
+    }
+
+    addEventListener('click', (e) => {
+        if(e.target.id == 'slideleft'){
+            poin == 0 ? poin = 4 : poin -= 1;
+        }else if(e.target.id == 'slideright'){
+            poin == 4 ? poin = 0 : poin += 1;
+        }
+        for(let i = 0; i < certificate.length; i++){
+            certificate[i].style.display = 'none';
+            certificate[poin].style.display = 'block';
+        }
+    });
+}
